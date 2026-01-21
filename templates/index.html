@@ -1,0 +1,81 @@
+<!-- Student Mark Predictor App GUI -->
+
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Student Mark Predictor ML App</title>
+
+  <style>
+
+    h1   {color: #1e3c72;}  /* CSS code for heading h1 */
+
+    /* CSS code for button */
+    .button_css {
+    color: #ffffff !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #1e3c72;  /* Deep Blue */
+    padding: 18px 36px;
+    border: 2px solid #1e3c72;
+    display: inline-block;
+    transition: all 0.3s ease;
+    border-radius: 12px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    box-shadow: 0 6px 16px rgba(30, 60, 114, 0.4);
+}
+
+.button_css:hover {
+    color: #ffffff !important;
+    background: #2a5298;   /* Lighter Blue on hover */
+    border-color: #2a5298;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(42, 82, 152, 0.5);
+}
+
+  </style>
+
+</head>
+
+<body>
+
+  <!-- Show Oxstandhard Univercity Banner-->
+  <div>
+    <img src="static/images/college_banner2.png" class="w3-border w3-padding" alt="Indian AI Production" style="width:100%">
+  </div>
+
+ 
+ 
+ <div class="login">
+	
+    <!-- Form Get input to predict Marks-->
+    <center>
+    <form action="{{ url_for('predict')}}"method="post">
+        <h1>Enter Your Study Hours to Predict Marks</h1>
+        
+    	<input align="center" type="number" name="study_hours" placeholder="study hours" required="required" width="48" height="10"/>
+    	<br>
+        
+        <br>
+        
+        <!-- Show button -->
+        <div class="button_cont" align="center"><a class="button_css" href="http://bit.ly/breast-cancer-ml-project" target="_blank" rel="nofollow noopener">
+            <button type="submit" class="btn btn-primary btn-block btn-large"><strong>Predict Marks</strong></button></a>
+        </div>
+        
+    </form>
+    </center>
+   
+   <!-- Show predicted output using ML model --> 
+   <div>
+       <center>
+   <h2>{{ prediction_text }}</h2>
+       </center>
+   </div>
+
+ </div>
+
+</body>
+</html>
